@@ -1,0 +1,100 @@
+/* Global Font Import (Using Cairo for modern look and excellent Arabic support) */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Tailwind Base and Components */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Base Styles --- */
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #0f0f0f; /* Deep dark background */
+    color: #e5e5e5;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Global Transition for smooth hover and focus effects */
+* {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Accessibility Focus States (Using Netflix Red) */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid #e50914; 
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* --- Custom Scrollbar Styling (Webkit) --- */
+
+/* Scrollbar Track */
+::-webkit-scrollbar {
+    width: 8px; /* Vertical width */
+    height: 8px; /* Horizontal height (for carousels) */
+}
+
+/* Scrollbar Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border-radius: 10px;
+}
+
+/* Handle on Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}
+
+/* Scrollbar Track Background */
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+/* Utility to hide scrollbar while keeping functionality (useful for subtle horizontal lists) */
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+/* Override default select styles for better dark mode consistency */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+/* --- Custom Utility Classes (for non-standard tailwind needs) --- */
+
+@layer utilities {
+    .text-shadow-md {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    .text-shadow-lg {
+        text-shadow: 2px 4px 6px rgba(0, 0, 0, 1);
+    }
+    .text-shadow-none {
+        text-shadow: none;
+    }
+}
+
+/* Custom classes for the specific Netflix Red */
+.bg-netflix-red {
+    background-color: #e50914;
+}
+.text-netflix-red {
+    color: #e50914;
+}
